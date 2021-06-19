@@ -1,9 +1,13 @@
+*{
+  box-sizing: border-box;
+}
+
 .App {
   text-align: center;
 }
 
 .App-logo {
-  height: 40vmin;
+  height: 10vmin;
   pointer-events: none;
 }
 
@@ -15,7 +19,7 @@
 
 .App-header {
   background-color: #282c34;
-  min-height: 100vh;
+  min-height: 20vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -28,6 +32,14 @@
   color: #61dafb;
 }
 
+.navigation {
+  display : flex;
+  justify-content: space-between;
+  margin: 20px 1em 20px 1em; /* top right bottom left */
+  padding-left: 0;
+  list-style: none;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
@@ -35,4 +47,57 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.container {
+  width: 80%;
+  left: 50%;
+  position: relative;
+  transform: translateX(-50%);
+}
+
+.container > ul > li {
+  list-style: none;
+  float: left;
+  width: calc((100% - 40px) / 3 * 1);
+  margin-right: 20px;
+  margin-top: 10px;
+  padding: 7px 0;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0,0, 0.2);
+  border-left: 5px #61dafb solid;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  transform: rotate(45deg);
+  animation: ani 5s infinite;
+}
+
+.container > h1 {
+  animation: rainbow 0.5s infinite;
+}
+
+@keyframes ani {
+  0% {transform: rotateZ(0);}
+  100% {transform: rotateZ(360deg);}
+}
+
+@keyframes rainbow {
+  0% {color: red;}
+  14% {color: orange;}
+  28% {color: yellow;}
+  42% {color: green;}
+  56% {color: skyblue;}
+  78% {color: blue;}
+  100% {color: purple;}
+}
+
+.container > ul > li:hover {
+  transition: 0.4s;
+  cursor: pointer;
+  background: #282c34;
+  color: #fff;
+}
+
+.container > ul > li:nth-child(3n) {
+  margin-right: 0;
 }
